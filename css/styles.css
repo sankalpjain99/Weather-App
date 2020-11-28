@@ -1,0 +1,53 @@
+body{
+    background-image: url("/home/sankalp/Work-Sankalp/Web Development/WeatherApp/images/wall1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    color: white;
+}
+
+.container{
+    font-family: 'Spartan', sans-serif;
+}   
+
+.container-content{
+    margin: 15% 0 0 8%;
+}
+
+h1{
+    margin: 7% 0 0 7%;
+    font-size: 4rem;
+    font-weight: 400;
+}
+
+input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.5px solid grey;
+    color: white;
+    font-size: 2rem;
+    font-family: 'Spartan', sans-serif; 
+    font-weight: 200;
+    margin-left: 2%;
+    outline: none;
+    width: 40%;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+p{
+    font-weight: 200;
+}
+
+#marker{
+    font-size: 2rem;
+    opacity: 30%;
+}
+
+#marker:hover{
+    opacity: 100%;
+}
+
