@@ -1,0 +1,48 @@
+/* ***********************General and whole body CSS***********************  */
+
+body{
+    background-image: url("/home/sankalp/Work-Sankalp/Web Development/WeatherApp/images/wall2-rain.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+.main{
+    margin: 0;
+}
+
+/* ***********************Left Panel CSS***********************  */
+.info h3{
+    font-size: 2rem;
+}
+
+.info h4{
+    font-size: 1.5rem;
+}
+
+.left{
+    padding-left: 7%;
+    padding-top: 5%;
+    padding-right: 0;
+}
+
+.details{
+    position: absolute;
+    bottom: 15%;
+    width: 80%;
+}
+
+.temp h1{
+    font-size: 6rem;
+}
+
+/* ***********************Right Panel CSS***********************  */
+
+.right{
+    background-color: black;
+    opacity: 70%;
+}
