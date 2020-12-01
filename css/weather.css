@@ -16,6 +16,7 @@ body{
 }
 
 /* ***********************Left Panel CSS***********************  */
+
 .info h3{
     font-size: 2rem;
 }
@@ -42,7 +43,70 @@ body{
 
 /* ***********************Right Panel CSS***********************  */
 
+.add-info{
+    margin-top: 10%;
+    width: 80%;
+}
+
+hr{
+    background: white;
+}
+
 .right{
-    background-color: black;
-    opacity: 70%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-left: 5%;
+    padding-top: 5%;
+}
+
+.forecast{
+    margin-top: 10%;
+    width: 80%;
+}
+
+.location{
+    background-color: transparent;
+    border: none;
+    color: white;
+    width: 75%;
+    font-size: 1.5rem;
+}
+
+.location:focus{
+    outline: none;
+}
+
+.search{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    /* margin-left: 10px; */
+}
+
+.search:hover{
+    color: rgba(255, 255, 255, 0.418);
+}
+
+.search:focus{
+    outline: none;
+}
+
+/* Info Table  */
+
+table{
+    width: 100%;
+}
+
+td{
+    width: 50%;
+    font-size: 1.2rem;
+    padding: 5px;
+}
+
+.left-col{
+    color: grey;
+}
+
+.right-col{
+    text-align: right;
 }

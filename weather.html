@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
 
+    <!-- Font Awesome CDN  -->
+    <script src="https://kit.fontawesome.com/952f560496.js" crossorigin="anonymous"></script>
+
     <!-- Google Fonts  -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
@@ -30,7 +33,64 @@
             </div>
         </div>
         <div class="col-md-5 right panel">
-            <h1>asd</h1>
+            <input type="text" placeholder="Looking for some other place?" class="location">
+            <button class="search"><i class="fas fa-search"></i></button>
+            <div class="add-info">
+                <h3>Weather Details</h3>
+                <hr>
+                <table>
+                    <tr>
+                        <td class="left-col">Min</td>
+                        <td class="right-col">15&deg</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">Max</td>
+                        <td class="right-col">20&deg</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">Wind Speed</td>
+                        <td class="right-col">23 Kmhr</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">Pressure</td>
+                        <td class="right-col">1023</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">Humidity</td>
+                        <td class="right-col">73%</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">Sunrise</td>
+                        <td class="right-col">05:57 AM</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">Sunset</td>
+                        <td class="right-col">06:12 PM</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="forecast">
+                <h3>ForeCast</h3>
+                <hr>
+                <table>
+                    <tr>
+                        <td class="left-col">2 Dec</td>
+                        <td class="right-col">20&deg</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">3 Dec</td>
+                        <td class="right-col">21&deg</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">4 Dec</td>
+                        <td class="right-col">16&deg</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">5 Dec</td>
+                        <td class="right-col">24&deg</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
