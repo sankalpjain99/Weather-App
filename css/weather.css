@@ -1,7 +1,7 @@
 /* ***********************General and whole body CSS***********************  */
 
 body{
-    background-image: url("/home/sankalp/Work-Sankalp/Web Development/WeatherApp/images/wall2-rain.jpg");
+    background-image: url("../images/wall2-rain.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
