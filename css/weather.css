@@ -17,12 +17,16 @@ body{
 
 /* ***********************Left Panel CSS***********************  */
 
+#title{
+    font-size: max(1.5vw,2.5vh);
+}
+
 .info h3{
-    font-size: max(2vh,2vw);
+    font-size: max(2.7vh,1.8vw);
 }
 
 .info h4{
-    font-size: 1.5rem;
+    font-size: max(2.2vh, 1.3vw);
 }
 
 .left{
@@ -38,7 +42,7 @@ body{
 }
 
 .temp h1{
-    font-size: 6rem;
+    font-size: max(6vw,6.5vh);
 }
 
 /* ***********************Right Panel CSS***********************  */
@@ -46,6 +50,10 @@ body{
 .add-info{
     margin-top: 10%;
     width: 80%;
+}
+
+.right h3{
+    font-size: max(2vh,1.5vw);
 }
 
 hr{
@@ -68,7 +76,7 @@ hr{
     border: none;
     color: white;
     width: 75%;
-    font-size: 1.5rem;
+    font-size: max(2vh,1.5vw);
 }
 
 .location:focus{
@@ -79,8 +87,7 @@ hr{
     background-color: transparent;
     border: none;
     color: white;
-    font-size: 1.5rem;
-    /* margin-left: 10px; */
+    font-size: max(2vh,1.5vw);
 }
 
 .search:hover{
@@ -99,7 +106,7 @@ table{
 
 td{
     width: 50%;
-    font-size: 1.2rem;
+    font-size: max(1.7vh, 1.2vw);
     padding: 5px;
 }
 
@@ -114,7 +121,7 @@ td{
 
 /* Media Queries  */
 
-@media (max-width:767px){
+@media (max-width:1200px){
 
     .panel{
         text-align: center;
@@ -130,6 +137,10 @@ td{
         position: inherit;
         margin: 30% auto 10%;
         text-align: center;
+    }
+
+    .info{
+        margin-top: 5%;
     }
 
     /* Right Panel  */
