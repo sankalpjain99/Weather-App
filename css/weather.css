@@ -18,7 +18,7 @@ body{
 /* ***********************Left Panel CSS***********************  */
 
 .info h3{
-    font-size: 2rem;
+    font-size: max(2vh,2vw);
 }
 
 .info h4{
@@ -109,4 +109,48 @@ td{
 
 .right-col{
     text-align: right;
+}
+
+
+/* Media Queries  */
+
+@media (max-width:767px){
+
+    .panel{
+        text-align: center;
+    }
+
+    /* Left Panel  */
+    
+    .left{
+        padding-left: 0;
+    }
+
+    .details{
+        position: inherit;
+        margin: 30% auto 10%;
+        text-align: center;
+    }
+
+    /* Right Panel  */
+
+    .right{
+        padding: 0;
+        padding-top: 10%;
+    }
+
+    .add-info{
+        padding: 0;
+        margin: 10% auto;
+    }
+
+    .forecast{
+        margin: 10% auto;
+    }
+
+    .left-col{
+        text-align: left;
+    }
+
+
 }
