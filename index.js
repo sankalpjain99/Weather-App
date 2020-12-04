@@ -58,6 +58,18 @@ function changeBackground(id){
     });
 }
 
+// Function to convert weather description to camel case 
+function camelCase(text){
+    let words = text.split(" ");
+    var ans="";
+    for(var j=0;j<words.length;j++){
+        ans += words[j].substr(0,1).toUpperCase();
+        ans += words[j].substr(1,)
+        ans += " ";
+    }
+    return ans;
+}
+
 // Function to update System Time 
 function showSystemTime(){
     var d = new Date(),
@@ -78,17 +90,16 @@ function timeStampConvert(time){
 
 function changeValues(data){
     let currentData = data.list[0];
-    console.log(currentData);
-    const {name, sunrise, sunset} = data.city;
+    const {name, sunrise, sunset, country} = data.city;
     const {feels_like, temp_min, temp_max, pressure, humidity} = currentData.main;
     const {id, description} = currentData.weather[0];
     const {speed} = currentData.wind;
 
     // For Current Weather 
     changeBackground(id);
-    loc.innerHTML = name;
+    loc.innerHTML = name+", "+country;
     temp.innerHTML = Math.round(feels_like-273) + "&deg";
-    weather.innerHTML = description;
+    weather.innerHTML = camelCase(description);
     min.innerHTML = Math.round(temp_min-273) + "&deg";
     max.innerHTML = Math.round(temp_max-273) + "&deg";
     press.innerHTML = pressure + " hPa";
