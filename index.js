@@ -1,3 +1,6 @@
+
+// Get Elements from DOM 
+let searchBtn = document.getElementById("search-btn");
 let loc = document.getElementById("location");
 let temp = document.getElementById("temp");
 let weather = document.getElementById("msg");
@@ -9,14 +12,15 @@ let windSpeed = document.getElementById("speed");
 let rise = document.getElementById("sunrise");
 let set = document.getElementById("sunset");
 let time = document.getElementById("time");
-
 let day1 = document.getElementById("day1");
 let day2 = document.getElementById("day2");
 let day3 = document.getElementById("day3");
 let day4 = document.getElementById("day4");
-
 let forecast_days = [day1, day2, day3, day4];
 
+time.innerHTML = showSystemTime();
+
+// Fucntion to change Backgroung Image depending upon the weather 
 function changeBackground(id){
     let changeTo;
     if(id>=200 && id<233)
@@ -54,6 +58,7 @@ function changeBackground(id){
     });
 }
 
+// Function to update System Time 
 function showSystemTime(){
     var d = new Date(),
     minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
@@ -63,6 +68,7 @@ function showSystemTime(){
     return hours+':'+minutes+" - "+days[d.getDay()]+', '+d.getDate()+' '+months[d.getMonth()]+' '+d.getFullYear().toString().substr(2,2);
 }
 
+// Function to Convert Unix UTC time to system Time 
 function timeStampConvert(time){
     let date = new Date(time*1000);
     let hours = date.getHours();
@@ -70,10 +76,41 @@ function timeStampConvert(time){
     return hours+":"+mins.substr(-2);
 }
 
+function changeValues(data){
+    let currentData = data.list[0];
+    console.log(currentData);
+    const {name, sunrise, sunset} = data.city;
+    const {feels_like, temp_min, temp_max, pressure, humidity} = currentData.main;
+    const {id, description} = currentData.weather[0];
+    const {speed} = currentData.wind;
+
+    // For Current Weather 
+    changeBackground(id);
+    loc.innerHTML = name;
+    temp.innerHTML = Math.round(feels_like-273) + "&deg";
+    weather.innerHTML = description;
+    min.innerHTML = Math.round(temp_min-273) + "&deg";
+    max.innerHTML = Math.round(temp_max-273) + "&deg";
+    press.innerHTML = pressure + " hPa";
+    humid.innerHTML = humidity+" %";
+    rise.innerHTML = timeStampConvert(sunrise);
+    set.innerHTML = timeStampConvert(sunset);
+    windSpeed.innerHTML = speed + " m/s";
+
+    // For Forecast 
+    let count=0;
+    for(var i=8;i<data.list.length;i+=8){
+        let forecastData = data.list[i];
+        const {feels_like} = forecastData.main;
+        forecast_days[count].innerHTML = Math.round(feels_like-273) + "&deg";
+        count++;
+    }
+}
+
+// Event Listener for GeoLocation 
 window.addEventListener("load", function(){
     let long;
     let lat;
-    time.innerHTML = showSystemTime();
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position => {
             long = position.coords.longitude;
@@ -85,36 +122,25 @@ window.addEventListener("load", function(){
                     return response.json();
                 }) 
                 .then(data => {
-                    let currentData = data.list[0];
-                    const {name, sunrise, sunset} = data.city;
-                    const {feels_like, temp_min, temp_max, pressure, humidity} = currentData.main;
-                    const {id, description} = currentData.weather[0];
-                    const {speed} = currentData.wind;
-
-                    // For Current Weather 
-                    changeBackground(id);
-                    loc.innerHTML = name;
-                    temp.innerHTML = Math.round(feels_like-273) + "&deg";
-                    weather.innerHTML = description;
-                    min.innerHTML = Math.round(temp_min-273) + "&deg";
-                    max.innerHTML = Math.round(temp_max-273) + "&deg";
-                    press.innerHTML = pressure + " hPa";
-                    humid.innerHTML = humidity+" %";
-                    rise.innerHTML = timeStampConvert(sunrise);
-                    set.innerHTML = timeStampConvert(sunset);
-                    windSpeed.innerHTML = speed + " m/s";
-
-                    // For Forecast 
-                    let count=0;
-                    for(var i=8;i<data.list.length;i+=8){
-                        let forecastData = data.list[i];
-                        const {feels_like} = forecastData.main;
-                        forecast_days[count].innerHTML = Math.round(feels_like-273) + "&deg";
-                        count++;
-                    }
-
-                    console.log(currentData);
+                    changeValues(data);
                 })
         });
     }
 });
+
+// Event Listener for Search Bar 
+searchBtn.addEventListener("click", function(){
+    let city_name = document.getElementById("city_name").value;
+    if(city_name.length){
+        const proxy = "https://cors-anywhere.herokuapp.com/";
+        const api_city = `${proxy}api.openweathermap.org/data/2.5/forecast?q=${city_name}&appid=876e8c245f496abbff404eb049199580`;
+        fetch(api_city)
+            .then((response) => {
+                return response.json();
+            }) 
+            .then(data => {
+                console.log(data);
+                changeValues(data);
+            })
+    }
+})
