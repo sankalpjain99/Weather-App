@@ -17,8 +17,106 @@ let day2 = document.getElementById("day2");
 let day3 = document.getElementById("day3");
 let day4 = document.getElementById("day4");
 let forecast_days = [day1, day2, day3, day4];
+let cel = document.getElementsByClassName("cel")[0];
+let fah = document.getElementsByClassName("fah")[0];
 
+// Update Time
 time.innerHTML = showSystemTime();
+
+
+
+
+
+
+
+
+
+
+
+
+// ***********************************************************Error Part Starts*********************************************** 
+
+function CtoF(temp){
+    return temp * 9/5 +32;
+}
+
+function FtoC(temp){
+    return Math.round(((temp-32)*5)/9);
+}
+
+// var currUnit = "cel"
+$(".cel").click(function(){
+    console.log("adassdss");
+    min.innerHTML = Math.round(FtoC(min.innerHTML.slice(0,-1)))+"&deg";
+    max.innerHTML = Math.round(FtoC(max.innerHTML.slice(0,-1)))+"&deg";
+    day1.innerHTML = Math.round(FtoC(day1.innerHTML.slice(0,-1)))+"&deg";
+    day2.innerHTML = Math.round(FtoC(day2.innerHTML.slice(0,-1)))+"&deg";
+    day3.innerHTML = Math.round(FtoC(day3.innerHTML.slice(0,-1)))+"&deg";
+    day4.innerHTML = Math.round(FtoC(day4.innerHTML.slice(0,-1)))+"&deg";
+    temp.innerHTML = Math.round(FtoC(temp.innerHTML.slice(0,temp.innerHTML.indexOf("°"))))+ "&deg"+" <span class='cel unit'>C</span><span class='bar'>|</span><span class='fah unit'>F</span>";
+    $(".cel").addClass("unit-active");
+    $(".fah").removeClass("unit-active");
+})
+
+$(".fah").click(function(){
+    console.log("adas");
+    min.innerHTML = Math.round(CtoF(min.innerHTML.slice(0,-1)))+"&deg";
+    max.innerHTML = Math.round(CtoF(max.innerHTML.slice(0,-1)))+"&deg";
+    day1.innerHTML = Math.round(CtoF(day1.innerHTML.slice(0,-1)))+"&deg";
+    day2.innerHTML = Math.round(CtoF(day2.innerHTML.slice(0,-1)))+"&deg";
+    day3.innerHTML = Math.round(CtoF(day3.innerHTML.slice(0,-1)))+"&deg";
+    day4.innerHTML = Math.round(CtoF(day4.innerHTML.slice(0,-1)))+"&deg";
+    temp.innerHTML = Math.round(CtoF(temp.innerHTML.slice(0,temp.innerHTML.indexOf("°"))))+ "&deg"+" <span class='cel unit'>C</span><span class='bar'>|</span><span class='fah unit'>F</span>";
+    $(".cel").removeClass("unit-active");
+    $(".fah").addClass("unit-active");
+})
+
+
+
+// fah.addEventListener("click", function(){
+//     console.log("xvxcv");
+//     // if(currUnit==="cel"){
+//         min.innerHTML = Math.round(CtoF(min.innerHTML.slice(0,-1)))+"&deg";
+//         max.innerHTML = Math.round(CtoF(max.innerHTML.slice(0,-1)))+"&deg";
+//         day1.innerHTML = Math.round(CtoF(day1.innerHTML.slice(0,-1)))+"&deg";
+//         day2.innerHTML = Math.round(CtoF(day2.innerHTML.slice(0,-1)))+"&deg";
+//         day3.innerHTML = Math.round(CtoF(day3.innerHTML.slice(0,-1)))+"&deg";
+//         day4.innerHTML = Math.round(CtoF(day4.innerHTML.slice(0,-1)))+"&deg";
+//         temp.innerHTML = Math.round(CtoF(temp.innerHTML.slice(0,temp.innerHTML.indexOf("°"))))+ "&deg"+" <span class='cel unit'>C</span><span class='bar'>|</span><span class='fah unit'>F</span>";
+//         $(".cel").removeClass("unit-active");
+//         $(".fah").addClass("unit-active");
+//         // currUnit = "fah";
+//     // }
+// })
+
+// cel.addEventListener("click", function(){
+//     console.log("adsa");
+//     // if(currUnit === "fah"){
+//         min.innerHTML = Math.round(FtoC(min.innerHTML.slice(0,-1)))+"&deg";
+//         max.innerHTML = Math.round(FtoC(max.innerHTML.slice(0,-1)))+"&deg";
+//         day1.innerHTML = Math.round(FtoC(day1.innerHTML.slice(0,-1)))+"&deg";
+//         day2.innerHTML = Math.round(FtoC(day2.innerHTML.slice(0,-1)))+"&deg";
+//         day3.innerHTML = Math.round(FtoC(day3.innerHTML.slice(0,-1)))+"&deg";
+//         day4.innerHTML = Math.round(FtoC(day4.innerHTML.slice(0,-1)))+"&deg";
+//         temp.innerHTML = Math.round(FtoC(temp.innerHTML.slice(0,temp.innerHTML.indexOf("°"))))+ "&deg"+" <span class='cel unit'>C</span><span class='bar'>|</span><span class='fah unit'>F</span>";
+//         $(".cel").addClass("unit-active");
+//         $(".fah").removeClass("unit-active");
+//         // currUnit = "cel";
+//     // }
+// })
+
+
+// ***********************************************************Error Part Ends ***************************************************
+
+
+
+
+
+
+
+
+
+
 
 // Fucntion to change Backgroung Image depending upon the weather 
 function changeBackground(id){
@@ -99,7 +197,8 @@ function changeValues(data){
     // For Current Weather 
     changeBackground(id);
     loc.innerHTML = name+", "+country;
-    temp.innerHTML = Math.round(feels_like-273) + "&deg";
+    temp.innerHTML = Math.round(feels_like-273) + "&deg"+" <span class='cel unit'>C</span><span class='bar'>|</span><span class='fah unit'>F</span>";
+    $(".cel").addClass("unit-active");
     weather.innerHTML = camelCase(description);
     min.innerHTML = Math.round(temp_min-273) + "&deg";
     max.innerHTML = Math.round(temp_max-273) + "&deg";
@@ -136,6 +235,7 @@ window.addEventListener("load", function(){
                 })
         }, error =>{
             switch(error.code) {
+                // If Access Denied, then show weather for Delhi, IN  
                 case error.PERMISSION_DENIED:
                     const proxy = "https://cors-anywhere.herokuapp.com/";
                     const api_city = `${proxy}api.openweathermap.org/data/2.5/forecast?q=Delhi&appid=876e8c245f496abbff404eb049199580`;
