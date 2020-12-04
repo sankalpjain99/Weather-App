@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Load Images for faster switching time -->
     <div class="load-images">
         <img src="images/wall2-clouds.jpg" alt="" width="0" height="0" />
         <img src="images/wall2-clear.jpg" alt="" width="0" height="0" />
@@ -29,6 +30,8 @@
         <img src="images/wall2-thunder.jpg" alt="" width="0" height="0" />
         <img src="images/wall2-wind.jpg" alt="" width="0" height="0" />
     </div>
+
+    <!-- Actual Content  -->
     <div class="main row vh-100">
         <div class="col-xl-7 left panel">
             <h3 id="title">Weather App</h3>
@@ -86,19 +89,19 @@
                 <table>
                     <tr>
                         <td class="left-col">2 Dec</td>
-                        <td class="right-col">20&deg</td>
+                        <td class="right-col" id="day1">20&deg</td>
                     </tr>
                     <tr>
                         <td class="left-col">3 Dec</td>
-                        <td class="right-col">21&deg</td>
+                        <td class="right-col" id="day2">21&deg</td>
                     </tr>
                     <tr>
                         <td class="left-col">4 Dec</td>
-                        <td class="right-col">16&deg</td>
+                        <td class="right-col" id="day3">16&deg</td>
                     </tr>
                     <tr>
                         <td class="left-col">5 Dec</td>
-                        <td class="right-col">24&deg</td>
+                        <td class="right-col" id="day4">24&deg</td>
                     </tr>
                 </table>
             </div>

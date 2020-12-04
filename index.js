@@ -10,6 +10,13 @@ let rise = document.getElementById("sunrise");
 let set = document.getElementById("sunset");
 let time = document.getElementById("time");
 
+let day1 = document.getElementById("day1");
+let day2 = document.getElementById("day2");
+let day3 = document.getElementById("day3");
+let day4 = document.getElementById("day4");
+
+let forecast_days = [day1, day2, day3, day4];
+
 function changeBackground(id){
     let changeTo;
     if(id>=200 && id<233)
@@ -72,18 +79,19 @@ window.addEventListener("load", function(){
             long = position.coords.longitude;
             lat = position.coords.latitude;
             const proxy = "https://cors-anywhere.herokuapp.com/";
-            const api = `${proxy}api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=876e8c245f496abbff404eb049199580`;
+            const api = `${proxy}api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=876e8c245f496abbff404eb049199580`;
             fetch(api)
                 .then((response) => {
                     return response.json();
                 }) 
                 .then(data => {
-                    const {name} = data;
-                    const {feels_like, temp_min, temp_max, pressure, humidity} = data.main;
-                    const {id, description} = data.weather[0];
-                    const {speed} = data.wind;
-                    const {sunrise, sunset} = data.sys;
+                    let currentData = data.list[0];
+                    const {name, sunrise, sunset} = data.city;
+                    const {feels_like, temp_min, temp_max, pressure, humidity} = currentData.main;
+                    const {id, description} = currentData.weather[0];
+                    const {speed} = currentData.wind;
 
+                    // For Current Weather 
                     changeBackground(id);
                     loc.innerHTML = name;
                     temp.innerHTML = Math.round(feels_like-273) + "&deg";
@@ -95,7 +103,17 @@ window.addEventListener("load", function(){
                     rise.innerHTML = timeStampConvert(sunrise);
                     set.innerHTML = timeStampConvert(sunset);
                     windSpeed.innerHTML = speed + " m/s";
-                    console.log(data);
+
+                    // For Forecast 
+                    let count=0;
+                    for(var i=8;i<data.list.length;i+=8){
+                        let forecastData = data.list[i];
+                        const {feels_like} = forecastData.main;
+                        forecast_days[count].innerHTML = Math.round(feels_like-273) + "&deg";
+                        count++;
+                    }
+
+                    console.log(currentData);
                 })
         });
     }
