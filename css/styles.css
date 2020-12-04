@@ -58,6 +58,25 @@ body{
     font-size: max(6vw,6.5vh);
 }
 
+.bar{
+    font-size: max(1vh,2.2vw);
+    margin: 0 7px;
+    color: grey;
+}
+
+.unit{
+    font-size: max(1vh, 1.7vw);
+    color: grey;
+}
+
+.unit:hover{
+    color: white;
+}
+
+.unit-active{
+    color: white;
+}
+
 /* ***********************Right Panel CSS***********************  */
 
 .add-info{
