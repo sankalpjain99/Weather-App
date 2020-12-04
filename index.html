@@ -3,23 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Google Fonts  -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <title>Weather</title>
+
     <!-- Font Awesome CDN  -->
     <script src="https://kit.fontawesome.com/952f560496.js" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap and User CSS  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="container-content">
-            <a href="weather.html"><span id="marker"><i class="fas fa-map-marker-alt"></i></span></a>
-            <input type="text" placeholder="What is the weather in ...">
-            <p>Marker shows weather at your coordinates, <em>give it a try</em></p>
-            <button>Let's Go</button>
-        </div>
-        
+    <div class="load-images">
+        <img src="images/wall2-clouds.jpg" alt="" width="0" height="0" />
+        <img src="images/wall2-clear.jpg" alt="" width="0" height="0" />
+        <img src="images/wall2-drizzle.jpg" alt="" width="0" height="0" />
+        <img src="images/wall2-dust.jpg" alt="" width="0" height="0" />
+        <img src="images/wall2-mist.jpg" alt="" width="0" height="0" />
+        <img src="images/wall2-rain.jpg" alt="" width="0" height="0" />
+        <img src="images/wall2-sand.jpg" alt="" width="0" height="0" />
+        <img src="images/wall2-snow.jpg" alt="" width="0" height="0" />
+        <img src="images/wall2-thunder.jpg" alt="" width="0" height="0" />
+        <img src="images/wall2-wind.jpg" alt="" width="0" height="0" />
     </div>
+    <div class="main row vh-100">
+        <div class="col-xl-7 left panel">
+            <h3 id="title">Weather App</h3>
+            <div class="details row">
+                <div class="col-xl-4 temp">
+                    <h1 id="temp">16&deg</h1>
+                </div>
+                <div class="col-xl-8 info">
+                    <h3 id="location">New Delhi</h3>
+                    <h4 id="time">13:15 - Tuesday, 1 Dec '20</h4>
+                    <h4 id="msg">Rainy</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-5 right panel">
+            <input type="text" placeholder="Looking for some other place?" class="location">
+            <button class="search"><i class="fas fa-search"></i></button>
+            <div class="add-info">
+                <h3>Weather Details</h3>
+                <hr>
+                <table>
+                    <tr>
+                        <td class="left-col">Min</td>
+                        <td class="right-col" id="min">15&deg</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">Max</td>
+                        <td class="right-col" id="max">20&deg</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">Wind Speed</td>
+                        <td class="right-col" id="speed">23 Kmhr</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">Pressure</td>
+                        <td class="right-col" id="press">1023</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">Humidity</td>
+                        <td class="right-col" id="humid">73%</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">Sunrise</td>
+                        <td class="right-col" id="sunrise">05:57 AM</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">Sunset</td>
+                        <td class="right-col" id="sunset">06:12 PM</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="forecast">
+                <h3>ForeCast</h3>
+                <hr>
+                <table>
+                    <tr>
+                        <td class="left-col">2 Dec</td>
+                        <td class="right-col">20&deg</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">3 Dec</td>
+                        <td class="right-col">21&deg</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">4 Dec</td>
+                        <td class="right-col">16&deg</td>
+                    </tr>
+                    <tr>
+                        <td class="left-col">5 Dec</td>
+                        <td class="right-col">24&deg</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
