@@ -89,6 +89,7 @@ function timeStampConvert(time){
 }
 
 function changeValues(data){
+    console.log(data);
     let currentData = data.list[0];
     const {name, sunrise, sunset, country} = data.city;
     const {feels_like, temp_min, temp_max, pressure, humidity} = currentData.main;
@@ -120,12 +121,10 @@ function changeValues(data){
 
 // Event Listener for GeoLocation 
 window.addEventListener("load", function(){
-    let long;
-    let lat;
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position => {
-            long = position.coords.longitude;
-            lat = position.coords.latitude;
+            let long = position.coords.longitude;
+            let lat = position.coords.latitude;
             const proxy = "https://cors-anywhere.herokuapp.com/";
             const api = `${proxy}api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=876e8c245f496abbff404eb049199580`;
             fetch(api)
@@ -135,7 +134,31 @@ window.addEventListener("load", function(){
                 .then(data => {
                     changeValues(data);
                 })
-        });
+        }, error =>{
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    const proxy = "https://cors-anywhere.herokuapp.com/";
+                    const api_city = `${proxy}api.openweathermap.org/data/2.5/forecast?q=Delhi&appid=876e8c245f496abbff404eb049199580`;
+                    fetch(api_city)
+                        .then((response) => {
+                            return response.json();
+                        }) 
+                        .then(data => {
+                            console.log(data);
+                            changeValues(data);
+                        })
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Location information is unavailable");
+                    break;
+                case error.TIMEOUT:
+                    alert("The request to get user location timed out");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("An unknown error occurred");
+                    break;
+            }
+        })
     }
 });
 
