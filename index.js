@@ -40,7 +40,6 @@ $(".cel").addClass("unit-active");
 // Event listener for Fahrenhiet
 fah.addEventListener("click", function(){
     if(currentUnit==="cel"){
-        console.log("sankalp");
         min.innerHTML = Math.round(CtoF(min.innerHTML.slice(0,-1)))+"&deg";
         max.innerHTML = Math.round(CtoF(max.innerHTML.slice(0,-1)))+"&deg";
         day1.innerHTML = Math.round(CtoF(day1.innerHTML.slice(0,-1)))+"&deg";
@@ -57,7 +56,6 @@ fah.addEventListener("click", function(){
 // Event listener for Celsius
 cel.addEventListener("click", function(){
     if(currentUnit==="fah"){
-        console.log("jain");
         min.innerHTML = Math.round(FtoC(min.innerHTML.slice(0,-1)))+"&deg";
         max.innerHTML = Math.round(FtoC(max.innerHTML.slice(0,-1)))+"&deg";
         day1.innerHTML = Math.round(FtoC(day1.innerHTML.slice(0,-1)))+"&deg";
