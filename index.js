@@ -37,7 +37,7 @@ time.innerHTML = showSystemTime();
 // ***********************************************************Error Part Starts*********************************************** 
 
 function CtoF(temp){
-    return temp * 9/5 +32;
+    return Math.round((temp * 9)/5 +32);
 }
 
 function FtoC(temp){

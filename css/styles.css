@@ -1,5 +1,9 @@
 /* ***********************General and whole body CSS***********************  */
 
+html{
+    overflow: hidden;
+}
+
 body{
     background-image: url("../images/wall2-rain.jpg");
     background-position: center center;
@@ -14,6 +18,8 @@ body{
     -ms-transition: background 2s ease-in-out;
     -o-transition: background 2s ease-in-out;
     transition: background 2s ease-in-out;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 .main{
