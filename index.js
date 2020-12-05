@@ -142,7 +142,8 @@ function timeStampConvert(time){
 // Function to update info from API repsonse 
 function changeValues(data){
     console.log(data);
-    var currentUnit = "cel";
+    $(".fah").removeClass("unit-active");
+    currentUnit = "cel";
     $(".cel").addClass("unit-active");
     let currentData = data.list[0];
     const {name, sunrise, sunset, country} = data.city;
@@ -196,7 +197,7 @@ window.addEventListener("load", function(){
             switch(error.code) {
                 // If Access Denied, then show weather for Delhi, IN  
                 case error.PERMISSION_DENIED:
-                    $(".loader-h3").text("Denied, No worries,  Weather for Delhi,IN coming up");
+                    $(".loader-h3").text("Denied, No worries! Weather for Delhi,IN coming up");
                     const proxy = "https://cors-anywhere.herokuapp.com/";
                     const api_city = `${proxy}api.openweathermap.org/data/2.5/forecast?q=Delhi&appid=876e8c245f496abbff404eb049199580`;
                     fetch(api_city)
