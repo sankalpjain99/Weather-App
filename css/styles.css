@@ -132,7 +132,7 @@ body{
 }
 
 .unit{
-    font-size: max(1vh, 1.7vw);
+    font-size: max(1.7vh, 1.7vw);
     color: grey;
     cursor: pointer;
 }

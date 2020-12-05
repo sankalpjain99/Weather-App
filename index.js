@@ -222,6 +222,8 @@ function changeValues(data){
 window.addEventListener("load", function(){
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position => {
+            console.log("True");
+            $(".loader-h3").text("Fetching that Data");
             let long = position.coords.longitude;
             let lat = position.coords.latitude;
             const proxy = "https://cors-anywhere.herokuapp.com/";
@@ -239,6 +241,7 @@ window.addEventListener("load", function(){
             switch(error.code) {
                 // If Access Denied, then show weather for Delhi, IN  
                 case error.PERMISSION_DENIED:
+                    $(".loader-h3").text("Denied, No worries,  Weather for Delhi,IN coming up");
                     const proxy = "https://cors-anywhere.herokuapp.com/";
                     const api_city = `${proxy}api.openweathermap.org/data/2.5/forecast?q=Delhi&appid=876e8c245f496abbff404eb049199580`;
                     fetch(api_city)
