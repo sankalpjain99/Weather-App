@@ -26,7 +26,7 @@ time.innerHTML = showSystemTime();
 // Fix URL Bar issue for mobile Browsers 
 var bg = $("body");
 function resizeBackground() {
-    bg.height( $(window).height() + 60);
+    bg.height( $(window).height());
 }
 $(window).resize(resizeBackground);
 resizeBackground();
@@ -221,7 +221,6 @@ function changeValues(data){
 window.addEventListener("load", function(){
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position => {
-            console.log("True");
             $(".loader-h3").text("Fetching that Data");
             let long = position.coords.longitude;
             let lat = position.coords.latitude;
