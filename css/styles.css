@@ -32,10 +32,9 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
-    background: white;
-    background: #43cea2;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #185a9d, #43cea2);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #185a9d, #43cea2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #43cea2;
+    background: -webkit-linear-gradient(to right, #185a9d, #43cea2);
+    background: linear-gradient(to right, #185a9d, #43cea2);
 
     z-index: 999999;
     text-align: center;
@@ -45,6 +44,7 @@ body{
     position: relative;
     top: 43%;
     font-size: max(2.8vh, 2vw);
+    font-weight: 300;
 }
 
 .lds-ripple {
