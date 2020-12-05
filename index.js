@@ -23,14 +23,13 @@ let fah = document.getElementsByClassName("fah")[0];
 // Update Time
 time.innerHTML = showSystemTime();
 
-
-
-
-
-
-
-
-
+// Fix URL Bar issue for mobile Browsers 
+var bg = $("body");
+function resizeBackground() {
+    bg.height( $(window).height() + 60);
+}
+$(window).resize(resizeBackground);
+resizeBackground();
 
 
 
