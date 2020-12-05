@@ -2,7 +2,6 @@
 // Get Elements from DOM 
 let searchBtn = document.getElementById("search-btn");
 let loc = document.getElementById("location");
-let temp = document.getElementById("temp");
 let temp_val = document.getElementsByClassName("temp-value")[0];
 let weather = document.getElementById("msg");
 let min = document.getElementById("min");
@@ -143,6 +142,8 @@ function timeStampConvert(time){
 // Function to update info from API repsonse 
 function changeValues(data){
     console.log(data);
+    var currentUnit = "cel";
+    $(".cel").addClass("unit-active");
     let currentData = data.list[0];
     const {name, sunrise, sunset, country} = data.city;
     const {feels_like, temp_min, temp_max, pressure, humidity} = currentData.main;
@@ -152,7 +153,7 @@ function changeValues(data){
     // For Current Weather 
     changeBackground(id);
     loc.innerHTML = name+", "+country;
-    temp.innerHTML = Math.round(feels_like-273) + "&deg"+" <span class='cel unit'>C</span><span class='bar'>|</span><span class='fah unit'>F</span>";
+    temp_val.innerHTML = Math.round(feels_like-273) + "&deg";
     $(".cel").addClass("unit-active");
     weather.innerHTML = camelCase(description);
     min.innerHTML = Math.round(temp_min-273) + "&deg";
