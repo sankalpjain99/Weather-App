@@ -232,6 +232,8 @@ window.addEventListener("load", function(){
                 }) 
                 .then(data => {
                     changeValues(data);
+                    var preloader = $('.preloader-wrapper');
+                    preloader.fadeOut(500);
                 })
         }, error =>{
             switch(error.code) {
@@ -246,6 +248,8 @@ window.addEventListener("load", function(){
                         .then(data => {
                             console.log(data);
                             changeValues(data);
+                            var preloader = $('.preloader-wrapper');
+                            preloader.fadeOut(500);
                         })
                     break;
                 case error.POSITION_UNAVAILABLE:
