@@ -24,12 +24,11 @@ let fah = document.getElementsByClassName("fah")[0];
 time.innerHTML = showSystemTime();
 
 // Fix URL Bar issue for mobile Browsers 
-var bg = $("body");
-function resizeBackground() {
-    bg.height( $(window).height());
-}
-$(window).resize(resizeBackground);
-resizeBackground();
+window.addEventListener("load",function() { 
+    setTimeout(function(){ // This hides the address bar: 
+        window.scrollTo(0, 1);
+    }, 0);
+})
 
 
 

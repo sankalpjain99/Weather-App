@@ -1,7 +1,7 @@
 /* ***********************General and whole body CSS***********************  */
 
 html{
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 body{
@@ -18,8 +18,8 @@ body{
     -ms-transition: background 2s ease-in-out;
     -o-transition: background 2s ease-in-out;
     transition: background 2s ease-in-out;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
+    /* overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; */
 }
 
 .main{
