@@ -92,7 +92,7 @@ body{
 }
 
 .info{
-    margin-top: 15px;
+    margin-top: 0px;
 }
 
 .info h3{
@@ -169,7 +169,7 @@ hr{
     background-color: transparent;
     border: none;
     color: white;
-    width: 75%;
+    width: 74%;
     font-size: max(2vh,1.5vw);
 }
 
@@ -223,6 +223,10 @@ td{
 
     /* Left Panel  */
     
+    .bar{
+        margin: 0 3px;
+    }
+
     .left{
         padding-left: 0;
     }
