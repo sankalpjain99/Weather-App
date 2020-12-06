@@ -225,9 +225,9 @@ window.addEventListener("load", function(){
 
 // Event Listener for Search Bar 
 searchBtn.addEventListener("click", function(){
-    $(".input-loader-wrapper").removeClass("hide-loader");
     let city_name = document.getElementById("city_name").value;
     if(city_name.length){
+        $(".input-loader-wrapper").removeClass("hide-loader");
         const proxy = "https://cors-anywhere.herokuapp.com/";
         const api_city = `${proxy}api.openweathermap.org/data/2.5/forecast?q=${city_name}&appid=876e8c245f496abbff404eb049199580`;
         fetch(api_city)
