@@ -232,11 +232,22 @@ searchBtn.addEventListener("click", function(){
         const api_city = `${proxy}api.openweathermap.org/data/2.5/forecast?q=${city_name}&appid=876e8c245f496abbff404eb049199580`;
         fetch(api_city)
             .then((response) => {
+                if(!response.ok)
+                    throw response;
                 return response.json();
             }) 
             .then(data => {
                 changeValues(data);
                 $(".input-loader-wrapper").addClass("hide-loader");
+                document.getElementById("city_name").value="";
             })
+            .catch(error => {
+                $(".input-loader-wrapper").addClass("hide-loader");
+                error.json().then((body)=>{
+                    alert(body.message);
+                    document.getElementById("city_name").value="";
+                });
+             })
+        
     }
 })
