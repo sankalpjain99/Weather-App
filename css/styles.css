@@ -149,6 +149,8 @@ body{
 
 /* ***********************Right Panel CSS***********************  */
 
+/* Element CSS  */
+
 .add-info{
     margin-top: 10%;
     width: 80%;
@@ -198,6 +200,44 @@ hr{
 
 .search:focus{
     outline: none;
+}
+
+/* Input-Spinner  */
+
+.input-container{
+    position: relative;
+}
+
+.input-loader-wrapper{
+    position: absolute;
+    right: 32%;
+    top: calc(50% - 10px);
+}
+
+.hide-loader{
+    display: none;
+}
+
+.loader {
+    position: relative;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    border-top: 3px solid white;
+    width: 20px;
+    height: 20px;
+    -webkit-animation: spin 1s linear infinite; /* Safari */
+    animation: spin 1s linear infinite;
+}
+  
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* Info Table  */
@@ -269,5 +309,8 @@ td{
         text-align: left;
     }
 
+    .input-loader-wrapper{
+        right: 20%;
+    }
 
 }

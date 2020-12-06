@@ -225,6 +225,7 @@ window.addEventListener("load", function(){
 
 // Event Listener for Search Bar 
 searchBtn.addEventListener("click", function(){
+    $(".input-loader-wrapper").removeClass("hide-loader");
     let city_name = document.getElementById("city_name").value;
     if(city_name.length){
         const proxy = "https://cors-anywhere.herokuapp.com/";
@@ -234,8 +235,8 @@ searchBtn.addEventListener("click", function(){
                 return response.json();
             }) 
             .then(data => {
-                console.log(data);
                 changeValues(data);
+                $(".input-loader-wrapper").addClass("hide-loader");
             })
     }
 })
