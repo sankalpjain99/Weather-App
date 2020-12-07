@@ -20,9 +20,6 @@ let forecast_days = [day1, day2, day3, day4];
 let cel = document.getElementsByClassName("cel")[0];
 let fah = document.getElementsByClassName("fah")[0];
 
-// API KEY 
-var api_key = config.API_KEY;
-
 // Update Time
 time.innerHTML = showSystemTime();
 
@@ -182,7 +179,7 @@ function searchLocation(){
     if(city_name.length){
         $(".input-loader-wrapper").removeClass("hide-loader");
         const proxy = "https://cors-anywhere.herokuapp.com/";
-        const api_city = `${proxy}api.openweathermap.org/data/2.5/forecast?q=${city_name}&appid=${api_key}`;
+        const api_city = `${proxy}api.openweathermap.org/data/2.5/forecast?q=${city_name}&appid=876e8c245f496abbff404eb049199580`;
         fetch(api_city)
             .then((response) => {
                 if(!response.ok)
@@ -213,7 +210,7 @@ window.addEventListener("load", function(){
             let long = position.coords.longitude;
             let lat = position.coords.latitude;
             const proxy = "https://cors-anywhere.herokuapp.com/";
-            const api = `${proxy}api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${api_key}`;
+            const api = `${proxy}api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=876e8c245f496abbff404eb049199580`;
             fetch(api)
                 .then((response) => {
                     return response.json();
@@ -229,7 +226,7 @@ window.addEventListener("load", function(){
                 case error.PERMISSION_DENIED:
                     $(".loader-h3").text("Denied, No worries! Weather for Delhi,IN coming up");
                     const proxy = "https://cors-anywhere.herokuapp.com/";
-                    const api_city = `${proxy}api.openweathermap.org/data/2.5/forecast?q=Delhi&appid=${api_key}`;
+                    const api_city = `${proxy}api.openweathermap.org/data/2.5/forecast?q=Delhi&appid=876e8c245f496abbff404eb049199580`;
                     fetch(api_city)
                         .then((response) => {
                             return response.json();
