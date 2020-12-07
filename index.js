@@ -173,6 +173,35 @@ function changeValues(data){
     }
 }
 
+// Function to call API for location in search box 
+function searchLocation(){
+    let city_name = document.getElementById("city_name").value;
+    if(city_name.length){
+        $(".input-loader-wrapper").removeClass("hide-loader");
+        const proxy = "https://cors-anywhere.herokuapp.com/";
+        const api_city = `${proxy}api.openweathermap.org/data/2.5/forecast?q=${city_name}&appid=876e8c245f496abbff404eb049199580`;
+        fetch(api_city)
+            .then((response) => {
+                if(!response.ok)
+                    throw response;
+                return response.json();
+            }) 
+            .then(data => {
+                changeValues(data);
+                $(".input-loader-wrapper").addClass("hide-loader");
+                document.getElementById("city_name").value="";
+            })
+            .catch(error => {
+                $(".input-loader-wrapper").addClass("hide-loader");
+                error.json().then((body)=>{
+                    alert(body.message);
+                    document.getElementById("city_name").value="";
+                });
+             })
+        
+    }
+}
+
 // Event Listener for GeoLocation 
 window.addEventListener("load", function(){
     if(navigator.geolocation){
@@ -225,29 +254,13 @@ window.addEventListener("load", function(){
 
 // Event Listener for Search Bar 
 searchBtn.addEventListener("click", function(){
-    let city_name = document.getElementById("city_name").value;
-    if(city_name.length){
-        $(".input-loader-wrapper").removeClass("hide-loader");
-        const proxy = "https://cors-anywhere.herokuapp.com/";
-        const api_city = `${proxy}api.openweathermap.org/data/2.5/forecast?q=${city_name}&appid=876e8c245f496abbff404eb049199580`;
-        fetch(api_city)
-            .then((response) => {
-                if(!response.ok)
-                    throw response;
-                return response.json();
-            }) 
-            .then(data => {
-                changeValues(data);
-                $(".input-loader-wrapper").addClass("hide-loader");
-                document.getElementById("city_name").value="";
-            })
-            .catch(error => {
-                $(".input-loader-wrapper").addClass("hide-loader");
-                error.json().then((body)=>{
-                    alert(body.message);
-                    document.getElementById("city_name").value="";
-                });
-             })
-        
+    searchLocation();
+})
+
+// Event Listener for Enter Key 
+let input_box = document.getElementById("city_name");
+input_box.addEventListener("keyup", function(e){
+    if(e.key  === 'Enter'){
+        searchLocation();
     }
 })
