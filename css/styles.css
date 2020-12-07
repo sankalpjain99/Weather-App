@@ -1,4 +1,8 @@
 /* ***********************General and whole body CSS***********************  */
+html{
+    height: -webkit-fill-available;
+}
+
 
 body{
     background-image: url("../images/wall2-rain.jpg");
@@ -6,7 +10,9 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    height: 100vh;
+    /* height: 100vh; */
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
     color: white;
     font-family: 'Lato', sans-serif;
     -webkit-transition: background 2s ease-in-out;
@@ -35,7 +41,7 @@ body{
     background: #43cea2;
     background: -webkit-linear-gradient(to right, #185a9d, #43cea2);
     background: linear-gradient(to right, #185a9d, #43cea2);
-    overflow-y: hidden;
+    overflow: hidden;
     z-index: 999999;
     text-align: center;
 }
