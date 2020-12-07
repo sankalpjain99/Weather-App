@@ -10,7 +10,6 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    /* height: 100vh; */
     min-height: 100vh;
     min-height: -webkit-fill-available;
     color: white;
@@ -269,7 +268,7 @@ td{
 
 /* Media Queries  */
 
-@media (max-width:1200px){
+@media (max-width:1199px){
 
     .panel{
         text-align: center;
