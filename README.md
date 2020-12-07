@@ -1,6 +1,6 @@
 # Weather Desk
 
-Weather Desk is your all-in-one solution for your weather needs. Be it your local temperature or some place you fancy, Weather Desk got you covered!
+Weather Desk is your all-in-one solution for your weather needs. Be it your local temperature or some place you fancy, Weather Desk got you covered! [Visit Website](https://sankalpjain99.github.io/Weather-Desk/)
 
 ![image](images/mockup.png)
 
@@ -16,7 +16,7 @@ openweathermap.org 5 day/3 hour forecast API was used to fetch data. [Click here
 4. Wind Speed in m/s
 5. Pressure in hPa
 6. Humidity
-7. Sunrise and Sunset Timings (in IST)
+7. Sunrise and Sunset Timings
 8. Temperature Forecast for the next 4 days
 9. Current Date and Time
 
