@@ -96,6 +96,15 @@ body{
     font-size: max(1.5vw,2.5vh);
 }
 
+#profile-link{
+    color: white;
+}
+
+#profile-link:hover{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.486);
+}
+
 .info{
     margin-top: 0px;
 }
@@ -155,6 +164,18 @@ body{
 /* ***********************Right Panel CSS***********************  */
 
 /* Element CSS  */
+
+#footer-profile{
+    display: none;
+    margin-bottom: 30px;
+    font-size: 2vh;
+    font-weight: 300;
+}
+
+#footer-link{
+    text-decoration: underline;
+    color: white;
+}
 
 .add-info{
     margin-top: 10%;
@@ -276,6 +297,10 @@ td{
 
     /* Left Panel  */
     
+    #profile-name{
+        display: none;
+    }
+
     .bar{
         margin: 0 3px;
     }
@@ -295,6 +320,10 @@ td{
     }
 
     /* Right Panel  */
+
+    #footer-profile{
+        display: block;
+    }
 
     .right{
         padding: 0;
