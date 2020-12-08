@@ -1,6 +1,6 @@
 # Weather Desk
 
-Weather Desk is your all-in-one solution for your weather needs. Be it your local temperature or some place you fancy, Weather Desk got you covered! [Visit Website](https://sankalpjain99.github.io/Weather-Desk/)
+Weather Desk is your all-in-one solution for your weather needs. Be it your local temperature or some place you fancy, Weather Desk got you covered! [Visit Website](https://weather-desk.netlify.app/)
 
 ![image](images/mockup.png)
 
